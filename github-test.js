@@ -1,1 +1,1 @@
-console.log('Github test')
+console.log('CONFLICT')
