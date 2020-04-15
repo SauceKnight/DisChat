@@ -1,11 +1,27 @@
-Dischat - Feature List
+DisChat - MVP Feature List
 =================================================================
-- [ ] Customizeable and createable servers.
-- [ ] Different chat channels within servers.
-- [ ] Live Chat
-- [ ] Direct Messaging via Private encrypted chat rooms
+#### Servers
+- [ ] Create a new server.
+- [ ] Reads a server and accesss its content.
+- [ ] Update server.
+- [ ] Delete server and its content.
+#### Chat Channels
+- [ ] Create a new chat channel within any server.
+- [ ] Read all channels within the server.
+- [ ] Update channel.
+- [ ] Delete channel.
+#### Users
+- [ ] Create a new user.
+- [ ] Read all user information.
+- [ ] Update user information.
+- [ ] Delete user.
+#### Live Chat
+- [ ] Create new messages
+- [ ] Allow all users within the channel to view channel messages instantly.
+- [ ] Edit messages.
+- [ ] Delete messages.
 
-Dischat - Bonus Features
+DisChat - Bonus Features
 -----------------------------------------------------------------
 - [ ] User points system in chats.
 - [ ] Role system for users inside of a server
@@ -13,6 +29,7 @@ Dischat - Bonus Features
 - [ ] Play games inside of chats.
 - [ ] Infinite scroll for chats
 - [ ] Friends List
+- [ ] Direct Messaging via Private encrypted chat rooms
 
 >
 >
