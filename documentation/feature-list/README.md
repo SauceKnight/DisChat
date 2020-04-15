@@ -2,17 +2,17 @@ Dischat - Feature List
 =================================================================
 - [ ] Customizeable and createable servers.
 - [ ] Different chat channels within servers.
-- [ ] Live Chat
-- [ ] Direct Messaging via Private encrypted chat rooms
+- [ ] Live chat between registered users.
+- [ ] Direct messaging via private encrypted chat rooms.
 
 Dischat - Bonus Features
 -----------------------------------------------------------------
 - [ ] User points system in chats.
-- [ ] Role system for users inside of a server
+- [ ] Role system for users inside of a server.
 - [ ] Commands in the chat.
 - [ ] Play games inside of chats.
-- [ ] Infinite scroll for chats
-- [ ] Friends List
+- [ ] Infinite scroll for chats.
+- [ ] Friends list.
 
 >
 >
