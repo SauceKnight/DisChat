@@ -24,7 +24,7 @@ DisChat - MVP Feature List
 DisChat - Bonus Features
 -----------------------------------------------------------------
 - [ ] User points system in chats.
-- [ ] Role system for users inside of a server.
+- [ ] Role system for users inside of a server
 - [ ] Commands in the chat.
 - [ ] Play games inside of chats.
 - [ ] Infinite scroll for chats
