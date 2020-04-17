@@ -14,7 +14,7 @@
 ![image](https://user-images.githubusercontent.com/60005605/79610534-b6625900-80c6-11ea-99e0-493678fe9174.png)
 
 # Create Channel
-![image](https://user-images.githubusercontent.com/60005605/79610585-ced27380-80c6-11ea-9b4d-d3c2960c757f.png)
+![image](https://user-images.githubusercontent.com/60005605/79610882-6637c680-80c7-11ea-85ed-aa689fd3eaf9.png)
 
 
 
