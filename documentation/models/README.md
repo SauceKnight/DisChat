@@ -60,7 +60,7 @@ DisChat Database Models
 - UserId
   - FK
   - Data Type: INTEGER
-	- References: Users(id)
+  - References: Users(id)
 - ServerId
   - FK
   - Data Type: INTEGER
@@ -68,11 +68,11 @@ DisChat Database Models
 ### UserChannels Model
 - This acts as a join table between Users and Channels.
 - UserId
-	* FK
+  * FK
   * Data Type: INTEGER
-	* References: Users(id)
+  * References: Users(id)
 - ChatId
-	- FK
+  - FK
   - Data Type: INTEGER
   - References: Channels(id)
 ###
