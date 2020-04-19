@@ -1,77 +1,244 @@
 /* banner header and its logos/links */
-body{
-    background-image: url()
+@keyframes floating {
+    from { transform: translate(0,  0px); }
+    65%  { transform: translate(0, 15px); }
+    to   { transform: translate(0, -0px); }    
 }
 
+@keyframes floating2 {
+    from { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 10px); }
+    to   { transform: translate(0, -0px); }    
+}
+
+body { 
+    background-color: rgb(42, 39, 44)
+}
+ 
 header{
-    padding: 10px;
+     padding: 10px 4px 10px 10px;
 }
+
+
 .header__nav-bar{
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 3fr 2fr;
-    margin: 10px 0px;
+     display: grid;
+     grid-template-rows: 1fr;
+     grid-template-columns: 1fr 3fr 1.5fr;
+     padding-bottom: 20px;
 }
 
+
+ 
 .header__logo{
-    grid-column-start: 1;
+     padding-left: 100px;
+     grid-column-start: 1;
+     color: white;
+     font-size: 24px;
+     text-decoration: none;
 }
-
+ 
 .header__login{
-    display:flex;
-    grid-column-start: 3;
-    justify-content: flex-end;
-    padding-right: 25px;
+     display:flex;
+     grid-column-start: 3;
+     justify-content: flex-end;
+     padding-right: 25px;
+     background-color: #ffff;
 }
-
+ 
 .header__buttons{
-    display: flex;
-    grid-column-start: 3;
-    justify-content: space-around;
-    padding-left: 30px;
-    padding-right: 30px;
+     display: flex;
+     grid-column-start: 3;
+     padding-left: 5px;
+     margin: 5px 0px 30px 0px;
+     justify-content: space-around;
 }
-.header__login-button{  /*TO DO: make button bigger*/
-    border: 2px solid gray;
-    padding: 5px 25px 7px;
-    border-radius: 15px;
-    line-height: 24px;
-    
+
+.header__login-button{ 
+     border: 2px solid gray;
+     padding: 5px 35px 7px;
+     border-radius: 15px;
+     line-height: 24px;
+     margin: 5px 15px 5px 155px;
+     background-color: rgb(133, 153, 241);
+     color: white;
+     font-size: 16px;
 }
+
 .header__sign-up-button{
-    border: 2px solid gray;
-    padding: 5px 17px 7px;
-    border-radius: 15px;
-    line-height: 24px;
+     border: 2px solid gray;
+     padding: 5px 25px 7px;
+     border-radius: 15px;
+     line-height: 24px;
+     margin: 5px 15px 5px 5px;
+     font-size: 16px;
 }
-
-/* top body portion:  message & demo button */
-.body{
-    display: grid;
-    grid-template-rows: 3fr 2fr 1fr
+ 
+ /* top body portion:  message & demo button */
+ div.body{
+     display: grid;
+     grid-template-rows: 60px 60px 500px 80px;
+     padding-top: 20px;
+     padding-bottom: 30px;
 }
-
+ 
 .body__heading{
-    display: flex;
-    justify-content: center;
-    padding: 50px 40px 0px;
-    grid-row-start: 1;
-    font-size: 40px;
-    text-align: center;
+     display: flex;
+     justify-content: center;
+     padding: 0px 20px 0px;
+     grid-row-start: 1;
+     font-size: 40px;
+     text-align: center;
+     color: white;
+     margin: 0px 30px;
 }
-.body__message{
-    display: flex;
-    justify-content: center;
-    font-size: 17px;
-    grid-row-start: 2;
-    text-align: center;
+ 
+div.body__icons{
+     grid-row-start: 3;
+     grid-row-end: 3;
+     margin-left: 200px;
+}
+ 
+img.body__icons-laptop{
+     position: absolute;
+     margin: 270px 0px 0px 720px;
+}
+ 
+img.body__icons-headphones{
+     position: absolute;
+     margin: 261px 0px 0px 950px;
+}
+ 
+img.body__icons-desktop{
+     position: absolute;
+     margin-top: 100px;
+     margin-left: 460px;
 }
 
+img.body__icons-android{
+     position: absolute;
+     margin-top: 340px;
+     margin-left: 300px
+}
+
+img.body__icons-iphone{
+     position: absolute;
+     margin-top: 350px;
+     margin-left: 400px;
+}
+ 
+img.body__icons-box{
+     position: absolute;
+     margin-left: 480px;
+     margin-top: 52px;
+}
+
+img.body__icons-potion{
+     margin-top: 400px;
+     margin-left: 260px;
+}
+
+img.body__icons-controller{
+     position: absolute;
+     margin-left: 510px;
+     margin-top: 405px;
+}
+
+img.body__icons-disk{
+     margin-left: 680px;
+}
+
+img.body__icons-cartrage{
+     position: absolute;
+     margin-top: 100px;
+     margin-left: 780px;
+}
+
+img.body__icons-coin-1{
+     position: absolute;
+     margin-top: 240px;
+     margin-left: 400px;
+}
+
+img.body__icons-coin-2{
+    position: absolute;
+    margin-top: 200px;
+    margin-left: 930px;
+}
+
+ img.body__icons-bomb{
+    position: absolute;
+    margin-top: 200px;
+    margin-left: 377px;
+}
+
+ img.body__icons-dot{
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 300px;
+    
+ }
+
+img.body__icons-x-1{
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 300px;
+}
+
+img.body__icons-x-2{
+    position: absolute;
+    margin-top: 400px;
+    margin-left: 760px;
+}
+
+img.body__icons-square{
+    position: absolute;
+    margin-top: 280px;
+}
+ 
+img.body__icons-triangle{
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 700px;
+}
+
+
+.floating {  
+    animation-name: floating;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+.floating2 {  
+    animation-name: floating2;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+.body__message{
+     display: flex;
+     justify-content: center;
+     font-size: 17px;
+     grid-row-start: 2;
+     text-align: center;
+     color: lightgray;
+     margin-bottom: 0px;
+     margin-bottom: 20px;
+}
+ 
 .body__demo-button{
-    display: flex;
-    justify-content: center;
-    margin: 10px 300px;
-    border-radius: 10px;
-    border: 2px solid gray;
-    grid-row-start: 3;
+     display: flex;
+     justify-content: center;
+     border-radius: 10px;
+     border: 2px solid gray;
+     grid-row-start: 4;
+     margin: 20px 750px;
+     background-color: rgb(133, 153, 241);
+     color: white;
+     font-size: 18px;
 }
