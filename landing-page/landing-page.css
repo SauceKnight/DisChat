@@ -1,4 +1,3 @@
-/* banner header and its logos/links */
 @keyframes floating {
     from { transform: translate(0,  0px); }
     65%  { transform: translate(0, 15px); }
@@ -11,8 +10,29 @@
     to   { transform: translate(0, -0px); }    
 }
 
+ @media screen and (min-width : 400px) and (max-width : 500px) {
+
+     body {
+         background-color: rgb(43, 248, 43);
+         border-top: 20px solid #DDDDDD;
+     }
+
+    nav.header__nav-bar{
+         display: flex;
+    }
+
+    h1.body__heading{
+         display: flex;
+         justify-content: flex-start;
+         margin: auto;
+         font-size: 12px;
+    }
+ }
+
 body { 
-    background-color: rgb(42, 39, 44)
+    background-color: rgb(42, 39, 44);
+    overflow-x: hidden;
+    
 }
  
 header{
@@ -30,7 +50,7 @@ header{
 
  
 .header__logo{
-     padding-left: 100px;
+     padding-left: 10px;
      grid-column-start: 1;
      color: white;
      font-size: 24px;
@@ -76,14 +96,15 @@ header{
  /* top body portion:  message & demo button */
  div.body{
      display: grid;
-     grid-template-rows: 60px 60px 500px 80px;
+     grid-template-rows: 60px 60px 600px 80px;
      padding-top: 20px;
      padding-bottom: 30px;
+     max-width: 100%;
 }
  
 .body__heading{
-     display: flex;
-     justify-content: center;
+     /* display: flex;
+     justify-content: center; */
      padding: 0px 20px 0px;
      grid-row-start: 1;
      font-size: 40px;
@@ -93,113 +114,148 @@ header{
 }
  
 div.body__icons{
+    max-width: 100%;
      grid-row-start: 3;
      grid-row-end: 3;
      margin-left: 200px;
 }
  
 img.body__icons-laptop{
+    max-width: 100%;
      position: absolute;
-     margin: 270px 0px 0px 720px;
+     margin: 250px 0px 0px 750px;
 }
  
 img.body__icons-headphones{
+    max-width: 100%;
      position: absolute;
-     margin: 261px 0px 0px 950px;
+     margin: 230px 0px 0px 1050px;
+     max-height: 200px;
 }
  
 img.body__icons-desktop{
+    max-width: 100%;
      position: absolute;
-     margin-top: 100px;
-     margin-left: 460px;
+     margin-top: 130px;
+     margin-left: 420px;
 }
 
 img.body__icons-android{
+    max-width: 100%;
      position: absolute;
-     margin-top: 340px;
-     margin-left: 300px
+     margin-top: 345px;
+     margin-left: 200px
 }
 
 img.body__icons-iphone{
+    max-width: 100%;
      position: absolute;
      margin-top: 350px;
-     margin-left: 400px;
+     margin-left: 350px;
 }
  
 img.body__icons-box{
+    max-width: 100%;
      position: absolute;
      margin-left: 480px;
-     margin-top: 52px;
+     margin-top: 60px;
 }
 
 img.body__icons-potion{
+    max-width: 100%;
      margin-top: 400px;
-     margin-left: 260px;
+     margin-left: 120px;
 }
 
 img.body__icons-controller{
+    max-width: 100%;
      position: absolute;
      margin-left: 510px;
-     margin-top: 405px;
+     margin-top: 493px;
 }
 
 img.body__icons-disk{
-     margin-left: 680px;
+    max-width: 100%;
+     margin-left: 940px;
 }
 
 img.body__icons-cartrage{
+    max-width: 100%;
      position: absolute;
      margin-top: 100px;
-     margin-left: 780px;
+     margin-left: 980px;
 }
 
 img.body__icons-coin-1{
+    max-width: 100%;
      position: absolute;
      margin-top: 240px;
-     margin-left: 400px;
+     margin-left: 340px;
 }
 
 img.body__icons-coin-2{
+    max-width: 100%;
     position: absolute;
-    margin-top: 200px;
-    margin-left: 930px;
+    margin-top: 180px;
+    margin-left: 1180px;
 }
 
  img.body__icons-bomb{
+         max-width: 100%;
     position: absolute;
     margin-top: 200px;
-    margin-left: 377px;
+    margin-left: 287px;
 }
 
  img.body__icons-dot{
+         max-width: 100%;
     position: absolute;
-    margin-top: 100px;
-    margin-left: 300px;
-    
+    margin-top: 380px;
+    margin-left: 150px;
  }
 
 img.body__icons-x-1{
+    max-width: 100%;
     position: absolute;
     margin-top: 40px;
-    margin-left: 300px;
+    margin-left: 380px;
 }
 
 img.body__icons-x-2{
+    max-width: 100%;
     position: absolute;
     margin-top: 400px;
-    margin-left: 760px;
+    margin-left: 1100px;
 }
 
+
 img.body__icons-square{
+    max-width: 100%;
     position: absolute;
     margin-top: 280px;
 }
  
-img.body__icons-triangle{
+img.body__icons-triangle-1{
+    max-width: 100%;
     position: absolute;
-    margin-top: 100px;
-    margin-left: 700px;
+    margin-top: 40px;
+    margin-left: 750px;
 }
+
+img.body__icons-triangle-2{
+    max-width: 100%;
+    position: absolute;
+    margin-top: 490px;
+    margin-left: 140px;    
+}
+
+img.body__icons-circle-1{
+    max-width: 100%;
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 10px;    
+}
+
 
 
 .floating {  
