@@ -18,6 +18,7 @@ DisChat Database Models
 - Associations:
   - Channel belongs to Server (many-to-one)
   - Channel has many Messages (one-to-many)
+  - Channel has many Users (many-to-many)
 ### User Model
 - userName
   - Data Type: STRING(30)
@@ -38,7 +39,7 @@ DisChat Database Models
 - Associations:
   - User has many Servers (many-to-many)
   - User has many Messages (one-to-many)
-
+  - User has many Channels (many-to-many)
 ### Message Model
 - messageContent
   - Data type: STRING(750)
@@ -54,6 +55,27 @@ DisChat Database Models
 - Associations:
   - Messages belong to Channels (many-to-one)
   - Messages belong to Users (many-to-one)
+### UserServers Model
+- This acts as a join table between Users and Servers.
+- UserId
+  - FK
+  - Data Type: INTEGER
+  - References: Users(id)
+- ServerId
+  - FK
+  - Data Type: INTEGER
+  - References: Servers(id)
+### UserChannels Model
+- This acts as a join table between Users and Channels.
+- UserId
+  * FK
+  * Data Type: INTEGER
+  * References: Users(id)
+- ChatId
+  - FK
+  - Data Type: INTEGER
+  - References: Channels(id)
+###
 
 > *****Each model automatically generates:
 > an id (Primary Key),
