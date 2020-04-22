@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+link(rel="stylesheet" href="/styles/sign-in.css")
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./sign-in.css">
+    //- include ../public/sign-in.css
     <title>Sign-Up</title>
 </head>
 
@@ -14,8 +15,9 @@
     </div>
     <main class="body">
         <div class="sign-in-box">
+            div(class="errors-container" style='padding-left: 20px; padding-top: 20px;')
             <h1 class="form-header">Create an account</h1>
-            <form action="">
+            <form class="sign-up-form">
                 <p>Email</p>
                 <input class="info" type="text" name="email">
                 <p>Username</p>
@@ -23,11 +25,11 @@
                 <p>Password</p>
                 <input class="info" type="password" name="password">
                 <input class="submit" type="submit" name="submit" value="Sign Up"><br>
-                <a href="/Users/lenalf/Documents/DisChat/DisChat/front-end/Log-in/log-in.html">Already have an
-                    account?</a>
+                <a href="/log-in">Already have an account?</a>
             </form>
         </div>
     </main>
 </body>
+<script type="module" src="/js/sign-up.js"></script>
 
 </html>
