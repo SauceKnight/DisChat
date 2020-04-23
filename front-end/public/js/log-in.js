@@ -51,10 +51,11 @@ logInForm.addEventListener("submit", async (e) => {
         if (!res.ok) {
             throw res;
         }
-        const { token, user: { id } } = await res.json();
+        const { token, user: { id, name } } = await res.json();
 
         localStorage.setItem('DischatAccessToken', token);
         localStorage.setItem('DischatUserId', id);
+        localStorage.setItem('DischatUserName', name);
         window.location.href = '/home';
     } catch (e) {
         handleErrors(e);

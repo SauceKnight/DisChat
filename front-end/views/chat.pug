@@ -8,16 +8,24 @@
 </head>
 <body>
     <div class="dischat">
+        form.hidden.create-box
+            label(for="serverName") Add a Server:
+            input(id='newServer' type="text" name="serverName")
+            <input class="submit" type="submit" role="button" name="add-server" value="Add Server"><br>
+
+        form.hidden.create-channel
+            label(for="channelName") Add a Channel:
+            input(id='newChannel' type="text" name="channelName")
+            <input class="submit" type="submit" role="button" name="add-channel" value="Add Channel"><br>
+
+
         <div class="servers">
             <div class="user-servers">
-                <ul>
-                    <li class="servers-li">
-                        <a href="/Users/lenalf/Documents/DisChat/DisChat/front-end/chat-page/chat.html">
+                <ul id="server-list">
+                    <li class="home-li">
                           <img src="/images/sign-in-background.png" class="server-display" alt="NO IMAGE">
-                        </a>
                     </li>
-                    <li class="servers-li"></li>
-                    <li class="servers-li" id="add-button">
+                    <li class="add-li" id="add-button">
                       <img src="/images/add-server.png" class="server-display">
                     </li>
 
@@ -26,7 +34,7 @@
         </div>
         <div class="channels">
             <div class="server">
-                <h3>ServerName</h3>
+                <h3 class="server-name"></h3>
             </div>
             <div class="channel">
                 <div class="text-channel">
@@ -34,24 +42,40 @@
                     <p class="add-channel">+</p>
                 </div>
                 <ul class="display-channels">
-                    <li class="channels-li"> <a class="select-channel" href=""> # channel1</a></li>
-                    <li class="channels-li"># channel2</li>
                 </ul>
             </div>
             <div class="user">
-                <p class="username">SauceKnight</p>
+                <p class="username"></p>
             </div>
         </div>
         <div class="chat">
             <div class="chat-box">
                 <div class="channel-name">
+                    h3#channel-name
                 </div>
                 <div class="message">
+
+                </div>
+                <div class="message-input">
+                  form.new-message-form
+                    label(for="newMessage")
+                    input(id="new-message" type="text" name="newMessage" placeholder="new message....")
+                    button.message-submit(type='submit') Send
                 </div>
             </div>
             <div class="chat-users">
+                div.users-column
+                    h3 Server Members
+                div.users
+                  ul#users-list
             </div>
         </div>
     </div>
 </body>
+<script src="/socket.io/socket.io.js"></script>
+script(src="/js/add-server.js")
+script(src="/js/chat.js")
+script(src="/js/add-channel.js")
+script(src="/js/load-content.js")
+//- script(src="/js/load-messages.js")
 </html>

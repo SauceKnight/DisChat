@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const socketio = require('socket.io');
 
 const pug = require('pug');
 
@@ -32,4 +33,28 @@ app.get('/home', (req, res) => {
 const port = 4000;
 
 
-app.listen(port, () => console.log(`Listening on port:${port}`));
+const server = app.listen(port, () => console.log(`Listening on port:${port}`));
+
+const io = socketio(server);
+
+io.on('connection', (socket) => {
+    console.log('a user connected');
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+    });
+
+    // Receives message from client
+    socket.on('message', msgObj => {
+        // Emits message to all clients
+        io.emit('message', msgObj)
+
+
+    })
+});
+
+// {
+//     messageContent: chatInput.value,
+//     UserId: userId,
+//     ChatId: 1,
+//     username: user
+// }

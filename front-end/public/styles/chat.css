@@ -59,6 +59,7 @@ div {
     padding: 0;
     cursor: pointer;
 }
+
 ul {
     display: flex;
     align-items: center;
@@ -78,6 +79,8 @@ ul {
     color: white;
     padding-left: 20px;
     border-bottom: 1px solid black;
+    height: 68px;
+    overflow: hidden;
 }
 .channel{
     display: flex;
@@ -94,6 +97,9 @@ ul {
 .select-channel {
     color: white;
     text-decoration: none;
+    margin: 0;
+    cursor: pointer;
+
 }
 .display-channels{
     display: flex;
@@ -127,3 +133,106 @@ ul {
     color: white;
     padding-left: 10px;
 }
+
+.create-box{
+        display: flex;
+        width: 450px;
+        background: #555252;
+        color: #fff;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+        border-radius: 25px;
+        flex-direction: column;
+        padding: 8px;
+}
+.create-channel{
+    display: flex;
+    width: 450px;
+    background: #555252;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 25px;
+    flex-direction: column;
+    padding: 8px;
+}
+
+
+.hidden{
+    display: none;
+}
+
+.channel-name{
+    display: flex;
+    flex-direction: row;
+    height: 68px;
+    border-bottom: 1px solid black;
+    color: white;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+.message{
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: white;
+    padding-left: 10px;
+
+}
+
+.message-input {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    border-top: 1px solid black;
+
+}
+
+.users-column{
+    display: flex;
+    color: white;
+    flex-direction: row;
+    height: 63px;
+    border-bottom: 1px solid black;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+.users{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: white;
+    padding-left: 10px;
+}
+
+.home-li {
+    list-style-type: none;
+    padding-top: 10px;
+}
+
+.add-li {
+    list-style-type: none;
+    padding-top: 10px;
+}
+
+.users-li {
+    color: white;
+    margin: 0;
+    list-style-type: none;
+
+}
+
+#users-list{
+    display: flex;
+    align-items: flex-start;
+}
+
