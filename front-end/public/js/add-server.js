@@ -22,6 +22,7 @@ formServer.addEventListener("submit", async (e) => {
     serverList.insertBefore(newServer, addServer);
     formServer.classList.add("hidden");
 
+
     const formData = new FormData(formServer);
 
     let serverName = formData.get("serverName");
@@ -74,9 +75,9 @@ formServer.addEventListener("submit", async (e) => {
             channelList.appendChild(newChannel);
             channelTitle.innerHTML = channels[0].channelName;
         })
-        const userResponse = await fetch(`http://localhost:8080/servers/${serverId}/users`);
-        const parsedUserResponse = await userResponse.json();
-        const userArray = parsedUserResponse.users;
+        // const userResponse = await fetch(`http://localhost:8080/servers/${serverId}/users`);
+        // const parsedUserResponse = await userResponse.json();
+        // const userArray = parsedUserResponse.users;
     })
 
 

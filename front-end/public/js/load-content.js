@@ -24,6 +24,56 @@ window.addEventListener("DOMContentLoaded", async (e) => {
         serverName = initialServer.serverName;
         serverTitle.innerHTML = serverName;
 
+        initialServer.Channels.forEach(channel => {
+            let newChannel = document.createElement("li");
+            currentChannelId = channel.id;
+            newChannel.dataset.channelId = channel.id;
+            newChannel.dataset.channelName = channel.channelName;
+            newChannel.classList.add("channels-li");
+            newChannel.innerHTML = `<p class="select-channel"> # ${channel.channelName}</p>`;
+            channelList.prepend(newChannel);
+            channelTitle.innerHTML = initialServer.Channels[initialServer.Channels.length - 1].channelName;
+        })
+
+        initialServer.Users.forEach(user => {
+            let newUser = document.createElement('li');
+            newUser.classList.add('users-li');
+            newUser.innerHTML = `<p class="select-user"> # ${user.userName}</p>`;
+            userList.appendChild(newUser);
+        });
+
+        // initialServer
+
+        const messageRes = await fetch(`http://localhost:8080/channels/${currentChannelId}/messages`);
+        const parsedMessageRes = await messageRes.json();
+        const messages = parsedMessageRes.messages;
+        messageBox.innerHTML = '';
+        messages.forEach(message => {
+            messageBox.innerHTML += `<p class="messages">${message.User.userName}: <br/> ${message.messageContent}</p>`;
+        });
+
+        let displayedChannels = document.querySelectorAll('.channels-li');
+        // console.log(displayedChannels);
+        displayedChannels.forEach(channel => {
+            channel.addEventListener('click', async (e) => {
+                currentChannelId = e.currentTarget.dataset.channelId;
+                const currentChannelName = e.currentTarget.dataset.channelName;
+                channelTitle.innerHTML = currentChannelName;
+                // fetch call with channelid to get messages
+                const messageRes = await fetch(`http://localhost:8080/channels/${currentChannelId}/messages`);
+                const parsedMessageRes = await messageRes.json();
+                const messages = parsedMessageRes.messages;
+                messageBox.innerHTML = '';
+                messages.forEach(message => {
+                    messageBox.innerHTML += `<p class="messages">${message.User.userName}: <br/> ${message.messageContent}</p>`;
+                });
+
+                // messsages.forEach((message)=> {
+                //     if (message.ChatId)
+                // })
+            })
+        })
+
         // console.log(serverArray);
 
         serverArray.forEach(server => {
@@ -45,32 +95,50 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                 serverTitle.innerHTML = serverName;
                 channelList.innerHTML = '';
                 userList.innerHTML = '';
+                messageBox.innerHTML = '';
                 const response = await fetch(`http://localhost:8080/servers/${serverId}/channels`);
                 const parsedResponse = await response.json();
                 const channels = parsedResponse.channels;
+                currentChannelId = channels[0].id;
                 if (channels.length === 0) {
                     channelTitle.innerHTML = "";
                 }
+
                 channels.forEach(channel => {
                     let newChannel = document.createElement("li");
                     newChannel.dataset.channelId = channel.id;
                     newChannel.dataset.channelName = channel.channelName;
                     newChannel.classList.add("channels-li");
                     newChannel.innerHTML = `<p class="select-channel"> # ${channel.channelName}</p>`;
-                    channelList.appendChild(newChannel);
+                    channelList.prepend(newChannel);
                     channelTitle.innerHTML = channels[0].channelName;
                 })
 
+                const messageRes = await fetch(`http://localhost:8080/channels/${currentChannelId}/messages`);
+                const parsedMessageRes = await messageRes.json();
+                const messages = parsedMessageRes.messages;
+                messageBox.innerHTML = '';
+                messages.forEach(message => {
+                    messageBox.innerHTML += `<p class="messages">${message.User.userName}: <br/> ${message.messageContent}</p>`;
+                });
 
-                const displayedChannels = document.querySelectorAll('.channels-li');
-                // console.log(displayedChannels);
+                displayedChannels = document.querySelectorAll('.channels-li');
+
                 displayedChannels.forEach(channel => {
                     channel.addEventListener('click', async (e) => {
                         currentChannelId = e.currentTarget.dataset.channelId;
                         const currentChannelName = e.currentTarget.dataset.channelName;
+                        console.log(currentChannelName);
+                        messageBox.innerHTML = '';
                         channelTitle.innerHTML = currentChannelName;
                         // fetch call with channelid to get messages
-
+                        const messageRes = await fetch(`http://localhost:8080/channels/${currentChannelId}/messages`);
+                        const parsedMessageRes = await messageRes.json();
+                        console.log(parsedMessageRes);
+                        const messages = parsedMessageRes.messages;
+                        messages.forEach(message => {
+                            messageBox.innerHTML += `<p class="messages">${message.User.userName}: <br/> ${message.messageContent}</p>`;
+                        });
                     })
                 })
 
@@ -85,9 +153,6 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                 })
             })
         }
-
-
-
 
     } catch {
 

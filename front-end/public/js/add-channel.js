@@ -28,6 +28,20 @@ formChannel.addEventListener("submit", async (e) => {
     channelList.appendChild(channel);
     formChannel.classList.add("hidden");
 
+    // channel.addEventListener('click', async (e) => {
+    //     currentChannelId = e.currentTarget.dataset.channelId;
+    //     const currentChannelName = e.currentTarget.dataset.channelName;
+    //     channelTitle.innerHTML = currentChannelName;
+    //     // fetch call with channelid to get messages
+    //     const messageRes = await fetch(`http://localhost:8080/channels/${currentChannelId}/messages`);
+    //     const parsedMessageRes = await messageRes.json();
+    //     const messages = parsedMessageRes.messages;
+    //     messageBox.innerHTML = '';
+    //     messages.forEach(message => {
+    //         messageBox.innerHTML += `<p class="messages">${message.User.userName}: <br/> ${message.messageContent}</p>`;
+    //     });
+    // });
+
     const body = { channelName };
 
     channelInput.value = '';

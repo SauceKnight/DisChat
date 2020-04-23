@@ -44,10 +44,10 @@ io.on('connection', (socket) => {
     });
 
     // Receives message from client
-    socket.on('message', msgObj => {
+    socket.on('message', (msgObj) => {
         // Emits message to all clients
-        io.emit('message', msgObj)
 
+        io.emit('message', msgObj)
 
     })
 });

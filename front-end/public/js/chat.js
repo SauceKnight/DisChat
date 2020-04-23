@@ -15,19 +15,41 @@ sendButton.addEventListener('click', async e => {
     socket.emit('message', {
         messageContent: chatInput.value,
         UserId: userId,
-        // ChatId: 1,
+        ChatId: currentChannelId,
         username: user
     })
+
+    try {
+        const res = await fetch(`http://localhost:8080/channels/${currentChannelId}/messages`, {
+            method: 'POST',
+            body: JSON.stringify({
+                messageContent: chatInput.value,
+                UserId: userId,
+                ChatId: currentChannelId
+            }),
+            headers: {
+                "Content-Type": 'application/json',
+            }
+        });
+        console.log('Received response')
+        if (!res.ok) {
+            throw res;
+        }
+    } catch (e) {
+        console.error(e);
+    }
 
     chatInput.value = '';
 })
 
 // Receives messages from front end server
-socket.on('message', msgObj => {
+socket.on('message', async (msgObj) => {
     const messageDiv = document.createElement('div');
     messageDiv.id = msgObj.messageContent;
-    messageDiv.innerHTML = `<div><div>${msgObj.username}:</div>${msgObj.messageContent}</div>`;
-    messageBox.append(messageDiv);
+    messageDiv.innerHTML = `<p class="messages"> ${msgObj.username}: <br/> ${msgObj.messageContent} </p>`;
+    if (msgObj.ChatId === currentChannelId) {
+        messageBox.append(messageDiv);
+    }
 
 });
 
