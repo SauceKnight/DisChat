@@ -123,6 +123,8 @@ ul {
 .add-channel{
     cursor: pointer;
 }
+
+
 .user{
     display: flex;
     flex-direction: row;
@@ -161,6 +163,37 @@ ul {
     border-radius: 25px;
     flex-direction: column;
     padding: 8px;
+}
+
+.join-server {
+    display: flex;
+        width: 450px;
+        background: #555252;
+        color: #fff;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+        border-radius: 25px;
+        flex-direction: column;
+        padding: 8px;
+}
+
+.confirm-join-server {
+    display: flex;
+        width: 450px;
+        background: #555252;
+        color: #fff;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+        border-radius: 25px;
+        flex-direction: column;
+        padding: 8px;
+
 }
 
 
@@ -224,6 +257,11 @@ ul {
     padding-top: 10px;
 }
 
+.join-li {
+    list-style-type: none;
+    padding-top: 10px;
+}
+
 .users-li {
     color: white;
     margin: 0;
@@ -242,3 +280,6 @@ ul {
     margin: 0;
 }
 
+/* #join-button {
+    : white;
+} */

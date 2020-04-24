@@ -1,12 +1,20 @@
 const express = require('express');
 
 const { Channel } = require('../db/models');
-const { asyncHandler } = require('../utils');
+const { asyncHandler, handleValidationErrors } = require('../utils');
 // const messagesRouter = require('./messages');
+const { check } = require("express-validator");
 
 const router = express.Router();
 
 // router.use('/channels/:channel_id', messagesRouter);
+
+const channelValidation = [
+    check('channelName')
+        .exists({ checkFalsy: true })
+        .withMessage('Must input channel name.'),
+    handleValidationErrors
+];
 
 router.get('/servers/:server_id/channels', asyncHandler(async (req, res, next) => {
     const serverid = parseInt(req.params.server_id, 10);
@@ -22,7 +30,7 @@ router.get('/channels/:channel_id', asyncHandler(async (req, res, next) => {
     res.json({ channel });
 }));
 
-router.post('/servers/:server_id/channels', asyncHandler(async (req, res, next) => {
+router.post('/servers/:server_id/channels', channelValidation, asyncHandler(async (req, res, next) => {
     const serverId = parseInt(req.params.server_id, 10);
     const { channelName } = req.body;
 
@@ -48,5 +56,7 @@ router.delete('/channels/:channel_id', asyncHandler(async (req, res, next) => {
     res.status(200);
 
 }));
+
+
 
 module.exports = router;

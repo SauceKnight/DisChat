@@ -37,6 +37,9 @@ router.post('/:user_id/servers', validateServername, handleValidationErrors, asy
     }
 }));
 
+
+
+
 router.put('/servers/:server_id', asyncHandler(async (req, res, next) => {
     const serverId = parseInt(req.params.server_id, 10);
 
@@ -75,6 +78,27 @@ router.get('/:user_id/servers', asyncHandler(async (req, res, next) => {
     const servers = user.Servers;
     res.json({ servers });
 }));
+
+
+router.get('/servers/find/:server', asyncHandler(async (req, res, next) => {
+
+
+    try {
+        const searchedServer = req.params.server;
+
+        const foundServer = await Server.findOne({
+            where: { serverName: searchedServer }
+        })
+
+        if (foundServer) {
+            res.json({ foundServer })
+        } else {
+            res.status(404);
+        }
+    } catch (e) {
+        console.log(e)
+    }
+}))
 
 
 

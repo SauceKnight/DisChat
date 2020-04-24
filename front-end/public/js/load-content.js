@@ -1,7 +1,7 @@
 let serverId;
 let serverName;
 let currentChannelId;
-
+let joinServerId;
 
 window.addEventListener("DOMContentLoaded", async (e) => {
     const serverList = document.querySelector("#server-list");

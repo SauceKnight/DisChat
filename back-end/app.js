@@ -12,6 +12,7 @@ const usersRouter = require('./routes/users');
 const serversRouter = require('./routes/servers');
 const messagesRouter = require('./routes/messages');
 const channelsRouter = require('./routes/channels');
+const userServersRouter = require('./routes/userservers');
 
 app.use(morgan("dev"));
 app.use(express.json());
@@ -23,6 +24,7 @@ app.use(usersRouter);
 app.use(serversRouter);
 app.use(messagesRouter);
 app.use(channelsRouter);
+app.use(userServersRouter);
 
 // Catch unhandled requests and forward to error handler.
 app.use((req, res, next) => {

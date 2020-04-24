@@ -18,15 +18,27 @@
             input(id='newChannel' type="text" name="channelName")
             <input class="submit" type="submit" role="button" name="add-channel" value="Add Channel"><br>
 
+        form.hidden.join-server
+            label(for="joinServerName") Join Server:
+            input(id='newJoinServer' type="text" name="joinServerName" placeholder="Please enter the name of the server you'd like to join.")
+            <input class="submit" type="submit" role="button" name="join-server" value="Join Server"><br>
+
+        form.hidden.confirm-join-server
+            .join-server-label Do you wish to join this server?
+            button(class="server-join-confirm" value="Join") Confirm
+            button(class="server-join-deny"  value="Cancel") Cancel
 
         <div class="servers">
             <div class="user-servers">
                 <ul id="server-list">
                     <li class="home-li">
-                          <img src="/images/sign-in-background.png" class="server-display" alt="NO IMAGE">
+                          <img src="/images/pngwave.png" class="server-display" alt="NO IMAGE">
                     </li>
                     <li class="add-li" id="add-button">
                       <img src="/images/add-server.png" class="server-display">
+                    </li>
+                    <li class="join-li" id="join-button">
+                      <img src="/images/join-icon.png" class="server-display">
                     </li>
 
                 </ul>
@@ -76,5 +88,7 @@ script(src="/js/add-server.js")
 script(src="/js/chat.js")
 script(src="/js/add-channel.js")
 script(src="/js/load-content.js")
+script(src="/js/join-server.js")
+script(src="/js/search-servers.js")
 //- script(src="/js/load-messages.js")
 </html>
