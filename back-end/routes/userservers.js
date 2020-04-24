@@ -13,12 +13,17 @@ router.post('/userservers', asyncHandler(async (req, res, next) => {
     await UserServer.findOrCreate({ where: { ServerId: joinServerId, UserId: UserId } });
 
     res.status(200);
-    // const [user, created] = await User.findOrCreate({
-    //   where: { username: 'sdepold' },
-    //   defaults: {
-    //     job: 'Technical Lead JavaScript'
-    //   }
-    // });
+}))
+
+router.delete('/userservers/:user_id/:server_id', asyncHandler(async (req, res, next) => {
+
+    const userId = parseInt(req.params.user_id, 10)
+    const serverId = parseInt(req.params.server_id, 10)
+
+    const entry = await UserServer.findOne({ where: { UserId: userId, ServerId: serverId } });
+
+    await entry.destroy();
+
 }))
 
 module.exports = router;

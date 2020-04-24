@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { Channel } = require('../db/models');
+const { Channel, Message } = require('../db/models');
 const { asyncHandler, handleValidationErrors } = require('../utils');
 // const messagesRouter = require('./messages');
 const { check } = require("express-validator");
@@ -51,10 +51,12 @@ router.delete('/channels/:channel_id', asyncHandler(async (req, res, next) => {
 
     const channel = await Channel.findByPk(channelId);
 
+    await Message.destroy({ where: { ChatId: channelId } });
+
     await channel.destroy();
 
-    res.status(200);
 
+    // res.status()
 }));
 
 

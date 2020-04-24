@@ -47,16 +47,16 @@ app.use((err, req, res, next) => {
   });
 });
 
-const server = app.listen(port, () => `Listening on port: ${port}`);
+// const server = app.listen(port, () => `Listening on port: ${port}`);
 
-const io = socketio(server);
+// const io = socketio(server);
 
-io.on('connection', (socket) => {
-  console.log('a user connected');
-  socket.on('disconnect', () => {
-    console.log('user disconnected');
-  });
-});
+// io.on('connection', (socket) => {
+//   console.log('a user connected');
+//   socket.on('disconnect', () => {
+//     console.log('user disconnected');
+//   });
+// });
 
 
 module.exports = app;
