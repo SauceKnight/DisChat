@@ -16,7 +16,7 @@ const userServersRouter = require('./routes/userservers');
 
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(cors({ origin: "https://dischat-application.herokuapp.com" }));
+app.use(cors({ origin: true }));
 
 // const corsOptions = {
 //   origin: 'https://dischat-application.herokuapp.com',

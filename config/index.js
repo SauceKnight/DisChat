@@ -12,3 +12,6 @@ module.exports = {
     expiresIn: process.env.JWT_EXPIRES_IN,
   }
 };
+
+
+// re review step 7 in reading
