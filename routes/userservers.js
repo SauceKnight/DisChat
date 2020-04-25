@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { UserServer } = require('../db/models');
+const { UserServer, Server, Channel, User } = require('../db/models');
 const { asyncHandler, handleValidationErrors } = require('../utils');
 const { check } = require("express-validator");
 
@@ -11,8 +11,8 @@ router.post('/userservers', asyncHandler(async (req, res, next) => {
     const { joinServerId, UserId } = req.body;
 
     await UserServer.findOrCreate({ where: { ServerId: joinServerId, UserId: UserId } });
-
-    res.status(200);
+    const server = await Server.findByPk(joinServerId, { include: [{ model: Channel }, { model: User, attributes: ['userName'] }] });
+    res.json({ server })
 }))
 
 router.delete('/userservers/:user_id/:server_id', asyncHandler(async (req, res, next) => {
