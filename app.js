@@ -16,7 +16,7 @@ const userServersRouter = require('./routes/userservers');
 
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:4000" }));
+app.use(cors({ origin: "https://dischat-application.herokuapp.com/" }));
 
 //Routers are last middleware passed in ALWAYS
 app.use(indexRouter);
