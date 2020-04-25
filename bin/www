@@ -6,6 +6,7 @@ const app = require("../app");
 const db = require("../db/models");
 
 // Check the database connection before starting the app.
+// This could be causing an error.. Does authenticate work the same way with heroku?
 db.sequelize
   .authenticate()
   .then(() => {
