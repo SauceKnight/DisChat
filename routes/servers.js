@@ -93,7 +93,7 @@ router.get('/servers/find/:server', asyncHandler(async (req, res, next) => {
         if (foundServer) {
             res.json({ foundServer })
         } else {
-            res.status(404);
+            res.json('server not found')
         }
     } catch (e) {
         console.log(e)
