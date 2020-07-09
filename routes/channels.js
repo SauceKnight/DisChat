@@ -55,7 +55,7 @@ router.delete('/channels/:channel_id', asyncHandler(async (req, res, next) => {
 
     await channel.destroy();
 
-
+    res.json('deleted')
     // res.status()
 }));
 

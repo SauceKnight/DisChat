@@ -23,7 +23,7 @@ router.delete('/userservers/:user_id/:server_id', asyncHandler(async (req, res, 
     const entry = await UserServer.findOne({ where: { UserId: userId, ServerId: serverId } });
 
     await entry.destroy();
-
+    res.json('deleted')
 }))
 
 module.exports = router;

@@ -37,10 +37,15 @@ router.get('/servers/:server_id/users', asyncHandler(async (req, res, next) => {
 
 router.post('/users', validateUsername, validateEmailAndPassword, asyncHandler(async (req, res, next) => {
     const { username, email, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await User.create({ userName: username, userEmail: email, hashedPassword });
-    const token = getUserToken(user);
-    res.status(201).json({ token, user: { id: user.id, name: user.userName } });
+    try {
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const user = await User.create({ userName: username, userEmail: email, hashedPassword });
+        const token = getUserToken(user);
+        res.status(201).json({ token, user: { id: user.id, name: user.userName } });
+    } catch (e) {
+        console.log(e)
+    }
+
 }));
 
 
@@ -77,23 +82,27 @@ router.post('/users', validateUsername, validateEmailAndPassword, asyncHandler(a
 router.post('/users/token', validateEmailAndPassword, handleValidationErrors, asyncHandler(async (req, res, next) => {
     // Get values from form:
     const { email, password } = req.body;
+    try {
+        // Find user with email:
+        const user = await User.findOne({ where: { userEmail: email } });
 
-    // Find user with email:
-    const user = await User.findOne({ where: { userEmail: email } });
+        // If user is not found or password does not match, make new error object:
+        if (!user || !user.validatePassword(password)) {
+            const err = new Error("Login failed");
+            err.status = 401;
+            err.title = "Login failed";
+            err.errors = ["The provided credentials were invalid."];
 
-    // If user is not found or password does not match, make new error object:
-    if (!user || !user.validatePassword(password)) {
-        const err = new Error("Login failed");
-        err.status = 401;
-        err.title = "Login failed";
-        err.errors = ["The provided credentials were invalid."];
+            return next(err);
+        }
 
-        return next(err);
+        // Generate JWT token and send JSON response with token and user ID
+        const token = getUserToken(user);
+        res.json({ token, user: { id: user.id, name: user.userName }, });
+    } catch (e) {
+        console.log(e)
     }
 
-    // Generate JWT token and send JSON response with token and user ID
-    const token = getUserToken(user);
-    res.json({ token, user: { id: user.id, name: user.userName }, });
 }));
 
 
