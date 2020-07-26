@@ -80,9 +80,11 @@ router.get('/:user_id/servers', asyncHandler(async (req, res, next) => {
 }));
 
 
-router.get('/servers/find/:server', asyncHandler(async (req, res, next) => {
+router.put('/servers/find/:server', asyncHandler(async (req, res, next) => {
 
+    const { userId } = req.body
 
+    console.log(userId)
     try {
         const searchedServer = req.params.server;
 
@@ -91,7 +93,13 @@ router.get('/servers/find/:server', asyncHandler(async (req, res, next) => {
         })
 
         if (foundServer) {
-            res.json({ foundServer })
+            const userInServer = await UserServer.findOne({ where: { UserId: userId, ServerId: foundServer.id } })
+            if (!userInServer) {
+                res.json({ foundServer })
+            } else {
+                res.json('already in server')
+            }
+
         } else {
             res.json('server not found')
         }
